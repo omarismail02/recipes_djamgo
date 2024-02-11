@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+  {% block content %}
+  <main>
+    <section class="py-5 container">
+         <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">RECIPES</h1>
+                <p class="lead text-muted">The best place to get modern enthusiast RECIPES
+                    ,and we've made it much easier
+                </p>
+                <a href="{% url 'recipe' %}" class="btn btn-primary my-2">Add your recipe</a>
+            </div>
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <form method="get">
+                {{recipe_filter.form|crispy}}
+                <button action=""  class="btn btn-sm btn-success mt-3" type="submit">Search</button>
+              </form>
+            </div>
+         </div>
+    </section>
+    <div class="album py-5 bg-light">
+        <div class="container">
+           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+               {% for recipe in recipe_filter.qs %}
+                  <div class="col">
+                    {% include "components/recipe_food.html" %}
+                  </div>
+               {% endfor %}
+           </div>
+        </div>
+    </div>
+  </main>
+  {% endblock %}
+   

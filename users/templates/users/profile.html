@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid text-center py-5">
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div class="row g-4">
+            <div class="col d-flex align-items-center">
+                <div>
+                    <h2 class="mb-3 border-bottom" style="color: black;">Profile</h2>
+                </div>
+            </div>
+        </div>
+        <form action="" method="POST" enctype="multipart/form-data">
+           {% csrf_token%}
+           <div class="row">
+              <div class="col-6">
+                 {{user_form|crispy}}
+                 {{profile_form|crispy}}
+               </div>
+                <br>
+           </div>
+              <button class="btn btn-lg btn-success mt-3" type="submit">Save</button>       
+        </form>
+    </div>
+    <div class="container px-4">
+       <div class="row g-4 py-5">
+          <div class="col d-flex align-items-center">
+            <h2 class="mb-3 border-bottom" style="color: black;">Your Recipes</h2>
+          </div>
+       </div>
+       <table class="table table-hover">
+          <tbody>
+             {% for recipe in user_recipes %}
+             <tr>
+               <td>{{ recipe.id }}</td>
+               <td>{{ recipe.title }}</td>
+             </tr>
+             {% endfor %}
+          </tbody>
+       </table>
+    </div>
+    <div class="container px-4">
+      <div class="row g-4 py-5">
+         <div class="col d-flex align-items-center">
+           <h2 class="mb-3 border-bottom" style="color: black;">Liked Recipes</h2>
+         </div>
+      </div>
+      <table class="table table-hover">
+         <tbody>
+            {% for liked_recipe in user_liked_recipes %}
+            <tr>
+              <td>{{ liked_recipe.id }}</td>
+              <td>{{ liked_recipe.recipe.title }}</td>
+              <td>{{ liked_recipe.like_date }}</td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </div>
+</div>
+
+
+{% endblock %}

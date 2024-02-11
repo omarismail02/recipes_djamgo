@@ -1,0 +1,12 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.content-section {
+    width: 600px; /* Set your desired width */
+    margin: auto;
+}

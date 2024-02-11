@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block 'header'%}
+{% endblock %}
+{% block content %}
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+
+<div class="heading">
+    <h1>About RECIPES</h1>
+    <p>  offering a  diverse collection of tantalizing recipes to inspire your next culinary adventure.</p>
+</div>
+<div class="conta">
+    <section class="about">
+            <div class="about-image">
+                <img  src="{% static 'imges/about.jpg' %}">
+            </div>
+            <div class="about-content">
+                <h2>Warm embrace in a cup</h2>
+                <p>Welcome to <b>RECIPES</b>, a culinary haven where passion for food meets the art of cooking. At <b>RECIPES</b>, we believe that every meal is an opportunity to create unforgettable experiences, and our mission is to empower home cooks of all skill levels to embark on culinary journeys filled with flavor and delight. Our carefully curated collection of recipes spans a myriad of cuisines, from comforting classics to innovative creations, ensuring there's something to tantalize every palate. Whether you're a seasoned chef looking to master new techniques or a novice in the kitchen seeking simple yet delicious dishes, our diverse range of recipes caters to all tastes and preferences. Each recipe is thoughtfully crafted with detailed instructions, helpful tips, and stunning visuals to guide you every step of the way, making cooking an enjoyable and rewarding experience. Beyond just providing recipes, we aspire to foster a vibrant community 
+                    of food enthusiasts who share a common love for all things culinary. 
+                    Join us on this gastronomic adventure as we celebrate the joy of cooking,
+                     one recipe at a time. Welcome to <b>RECIPES</b>—where every dish tells a
+                      story, and every bite is a moment to savor.</p>
+            </div>
+    </section>
+</div>
+{% endblock %}
+{% block 'footer' %}
+{% endblock %}

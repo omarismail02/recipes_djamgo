@@ -1,0 +1,61 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <section class="container col-xxl-8 px-4 py-5 bg-light">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+         <div class="col-10 col-sm-8 col-lg-6">
+              <img src="{{ recipe.image.url }}" class="d-block mx-lg-auto img-fluid" width="1920" height="1080" loading="lazy">
+         </div>
+         <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">{{ recipe.title}}</h1>
+            <p class="lead">{{recipe.cooker.username}} - {{ recipe.date_updated}}</p>
+         </div>
+      </div>
+    </section>
+    <div class="bg-light">
+        <div class="container px-4 py-5">
+           <h2 class="mb-3 border-bottom" style="color: black;">RECIPE Information</h2>
+           <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+              <div class="col-lg-8">
+                  <div class="table-responsive">
+                    <table class="table text-center">
+                       <tbody>
+                          <tr>
+                            <th scope="row" class="text-start">Title</th>
+                            <td>{{ recipe.title|capfirst }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Cooker</th>
+                            <td>{{ recipe.cooker.username }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Ingredients</th>
+                            <td>{{ recipe.ingredients }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Posted On:</th>
+                            <td>{{ recipe.date_posted }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Instructions</th>
+                            <td>{{ recipe.instructions }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Servings</th>
+                            <td>{{ recipe.servings }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-start">Nutritional Information</th>
+                            <td>{{ recipe.nutritional_information }}</td>
+                          </tr>
+
+                       </tbody>
+                    </table>
+                  </div>
+              </div>
+           </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
